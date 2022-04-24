@@ -1,0 +1,11 @@
+{
+  "navbar-sections": {
+    "about": "quién soy?",
+    "projects": "proyectos",
+    "blog": "blog"
+  },
+  "links": {
+    "github": "Echa un vistazo a mi GitHub",
+    "linkedin": "Echa un vistazo a mi LinkedIn"
+  }
+}

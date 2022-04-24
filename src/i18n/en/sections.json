@@ -1,0 +1,11 @@
+{
+  "navbar-sections": {
+    "about": "about",
+    "projects": "projects",
+    "blog": "blog"
+  },
+  "links": {
+    "github": "Checkout my GitHub",
+    "linkedin": "Checkout my LinkedIn"
+  }
+}

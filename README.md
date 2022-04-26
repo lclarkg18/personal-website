@@ -10,6 +10,10 @@ Other technologies:
 
 - [React Router](https://reactrouter.com) to create a multi-level navigation structure that enables a seamless multilingual experience.
 
+### Deployed version
+
+The website is deployed using Heroku and can be viewed at https://liam-clark.herokuapp.com. It will soon be available at www.liamclark.com
+
 ### To run it locally
 
 In the project directory, you can run `npm start`.

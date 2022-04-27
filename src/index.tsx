@@ -4,24 +4,36 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
 } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import About from './routes/about';
 import Projects from './routes/projects';
+import './i18n/config';
+import i18n from 'i18next';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+const languages: string[] = ['es', 'en'];
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="about" element={<About />} />
-        <Route path="projects" element={<Projects />} />
+        {languages.map((language) => (
+          <Route path={`${language}/`} element={<App expectedLng={language} />}>
+            <Route path="projects/" element={<Projects />} />
+            <Route path="about/" element={<About />} />
+          </Route>
+        ))}
+        <Route
+          path="/"
+          element={<Navigate to={`/${i18n.resolvedLanguage}`} replace />}
+        />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

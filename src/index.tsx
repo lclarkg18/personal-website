@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter,
@@ -8,11 +9,11 @@ import {
 } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+
 import App from './App';
 import About from './routes/about';
 import Projects from './routes/projects';
-import './i18n/config';
-import i18n from 'i18next';
+import Blog from './routes/blog';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -28,6 +29,7 @@ root.render(
           <Route path={`${language}/`} element={<App expectedLng={language} />}>
             <Route path="projects/" element={<Projects />} />
             <Route path="about/" element={<About />} />
+            <Route path="blog/" element={<Blog />} />
           </Route>
         ))}
         <Route

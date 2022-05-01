@@ -1,56 +1,58 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import React from 'react';
+import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
-import '../App.css';
+
 import { useTranslation } from 'react-i18next';
 
-function NavBar() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import pictureOfMe from '../static/images/head-shot.jpg';
+
+export default function NavBar() {
   const { t, i18n } = useTranslation();
+  const [activeTab, setActiveTab] = useState<string>('projects');
+  const [smallScreenMenuActivated, setSmallScreenMenuActivated] = useState<boolean>(false);
+  const sections: string[] = ['about', 'projects', 'blog'];
 
   return (
-    <div>
-      <nav className="navbar has-text-weight-bold" role="navigation" aria-label="main navigation">
+    <div className="container is-max-widescreen">
+      <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
+          <Link to={`/${i18n.language}`} onClick={() => setActiveTab('')}>
+            <figure className="image is-64x64">
+              <img alt="Liam" src={pictureOfMe} className="is-rounded" />
+            </figure>
+            <strong className="title is-5 is-hidden-desktop">Liam Clark Gutiérrez</strong>
+          </Link>
           <a
             role="button"
-            className="navbar-burger"
+            className={`navbar-burger ${(smallScreenMenuActivated ? 'is-active' : '')}`}
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbarElements"
+            data-target="navigation"
+            onClick={() => setSmallScreenMenuActivated(!smallScreenMenuActivated)}
           >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </a>
-          <Link to={`/${i18n.language}`}>
-            <figure className="image is-64x64 is-hidden-touch">
-              <img alt="LIAM" src={require('../static/images/head-shot.jpg')} className="is-rounded" />
-            </figure>
-          </Link>
         </div>
 
-        <div id="navbarElements" className="navbar-menu">
+        <div id="navigation" className={`navbar-menu ${(smallScreenMenuActivated ? 'is-active' : '')}`}>
           <div className="navbar-start">
-            <Link className="navbar-item is-active" to={`/${i18n.language}/about`}>
-              <span className="navbar-item-name">
-                {t('navbar-sections.about')}
-              </span>
-            </Link>
-
-            <Link className="navbar-item" to={`/${i18n.language}/projects`}>
-              <span className="navbar-item-name">
-                {t('navbar-sections.projects')}
-              </span>
-            </Link>
-
-            <a className="navbar-item">
-              <span className="navbar-item-name">
-                {t('navbar-sections.blog')}
-              </span>
-            </a>
+            {sections.map((section) => (
+              <Link
+                className={`navbar-item ${activeTab === section ? 'is-active' : ''}`}
+                to={`/${i18n.language}/${section}`}
+                onClick={() => setActiveTab(section)}
+              >
+                <span className="navbar-item-name">
+                  {t(`navbar-sections.${section}`)}
+                </span>
+              </Link>
+            ))}
           </div>
-          <div className="navbar-end">
+          <div className="navbar-end is">
             <a
               className="navbar-item is-size-5"
               title={t('links.github')}
@@ -75,5 +77,3 @@ function NavBar() {
     </div>
   );
 }
-
-export default NavBar;

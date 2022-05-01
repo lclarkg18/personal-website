@@ -1,12 +1,14 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+// eslint-disable-next-line import/extensions
 import './i18n/config.ts';
 import { useTranslation } from 'react-i18next';
 import NavBar from './components/navbar';
+import Footer from './components/footer';
+import { LanguageObject } from './types';
 
-interface IProps {
-  expectedLng: string
+interface AppProps {
+  languageObject: LanguageObject // All variables to do with language
 }
 
 export default function App({ languageObject }: AppProps): JSX.Element {
@@ -18,43 +20,37 @@ export default function App({ languageObject }: AppProps): JSX.Element {
       await i18n.changeLanguage(lang);
     };
 
-    changeLanguageHandler(language).catch((e) => console.log(e));
+    changeLanguageHandler(language).catch();
   }, [language]);
 
   return (
     <div>
-      <header className="header horizontal-padding">
+      <header className="section">
         <NavBar />
       </header>
-      <main className="section horizontal-padding">
-        <Outlet />
-        <br />
-        <br />
-        <br />
+      <main className="section">
+        <div className="container is-max-widescreen">
+          <Outlet />
+          <br />
+          <br />
+          <br />
 
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
 
-        <br />
-        <br />
-        <br />
+          <br />
+          <br />
+          <br />
 
-        <br />
-
-        <br />
-        <br />
-        <br />
-
-        <br />
-
-        <br />
+          <br />
+        </div>
 
       </main>
       <footer className="footer">
@@ -62,6 +58,4 @@ export default function App({ languageObject }: AppProps): JSX.Element {
       </footer>
     </div>
   );
-};
-
-export default App;
+}

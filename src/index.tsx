@@ -7,7 +7,11 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import './index.css';
+
+import './main.css';
+import i18n from 'i18next';
+import './i18n/config';
+
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';

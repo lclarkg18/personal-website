@@ -36,6 +36,7 @@ root.render(
           path="/"
           element={<Navigate to={`/${i18n.resolvedLanguage}`} replace />}
         />
+        <Route path="*" element={<h1> 404 </h1>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -26,7 +26,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         {languages.map((language) => (
-          <Route path={`${language}/`} element={<App expectedLng={language} />}>
+          <Route path={`${language}/`} element={<App languageObject={{ activeLanguage: language, languageOptions: languages, flagCodes }} />}>
             <Route path="projects/" element={<Projects />} />
             <Route path="about/" element={<About />} />
             <Route path="blog/" element={<Blog />} />

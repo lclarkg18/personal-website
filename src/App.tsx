@@ -9,9 +9,9 @@ interface IProps {
   expectedLng: string
 }
 
-const App: FC<IProps> = ({ expectedLng }: IProps): JSX.Element => {
-  const { t, i18n } = useTranslation();
-  const [language] = useState<string>(expectedLng);
+export default function App({ languageObject }: AppProps): JSX.Element {
+  const { i18n } = useTranslation();
+  const [language] = useState<string>(languageObject.activeLanguage);
 
   useEffect(() => {
     const changeLanguageHandler = async (lang: string) => {
@@ -20,15 +20,6 @@ const App: FC<IProps> = ({ expectedLng }: IProps): JSX.Element => {
 
     changeLanguageHandler(language).catch((e) => console.log(e));
   }, [language]);
-
-  function getPathWithoutLng() : string {
-    const pathWithoutFirstSlash: string = useLocation().pathname.substring(1);
-    const firstSlashLocation: number = pathWithoutFirstSlash.indexOf('/');
-    if (firstSlashLocation === -1) {
-      return '';
-    }
-    return pathWithoutFirstSlash.substring(firstSlashLocation + 1);
-  }
 
   return (
     <div>
@@ -67,29 +58,7 @@ const App: FC<IProps> = ({ expectedLng }: IProps): JSX.Element => {
 
       </main>
       <footer className="footer">
-        <div className="level horizontal-padding">
-          <div className="level-left">
-
-            <div className="level-item">
-              <text>
-                {t('footer.open-source-note1')}
-&nbsp;
-              </text>
-              <a href="https://github.com/lclarkg18/personal-website" target="_blank" rel="noreferrer">
-                {t('footer.open-source-note2')}
-              </a>
-            </div>
-          </div>
-          <div className="level-right">
-            <a className="is-64x64" href={`/es/${getPathWithoutLng()}`} rel="noreferrer">
-              <img
-                width={30}
-                alt="Español"
-                src="http://purecatamphetamine.github.io/country-flag-icons/3x2/ES.svg"
-              />
-            </a>
-          </div>
-        </div>
+        <Footer languageObject={languageObject} />
       </footer>
     </div>
   );

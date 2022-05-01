@@ -10,7 +10,7 @@ import pictureOfMe from '../static/images/head-shot.jpg';
 
 export default function NavBar() {
   const { t, i18n } = useTranslation();
-  const [activeTab, setActiveTab] = useState<string>('projects');
+  const [activeTab, setActiveTab] = useState<string>('');
   const [smallScreenMenuActivated, setSmallScreenMenuActivated] = useState<boolean>(false);
   const sections: string[] = ['about', 'projects', 'blog'];
 

@@ -7,10 +7,11 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import pictureOfMe from '../static/images/head-shot.jpg';
+import { getActiveSection } from '../helpers';
 
 export default function NavBar() {
   const { t, i18n } = useTranslation();
-  const [activeTab, setActiveTab] = useState<string>('');
+  const [activeTab, setActiveTab] = useState<string>(getActiveSection());
   const [smallScreenMenuActivated, setSmallScreenMenuActivated] = useState<boolean>(false);
   const sections: string[] = ['about', 'projects', 'blog'];
 
@@ -42,6 +43,7 @@ export default function NavBar() {
           <div className="navbar-start">
             {sections.map((section) => (
               <Link
+                key={`${section}_link`}
                 className={`navbar-item ${activeTab === section ? 'is-active' : ''}`}
                 to={`/${i18n.language}/${section}`}
                 onClick={() => setActiveTab(section)}

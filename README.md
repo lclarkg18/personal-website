@@ -4,6 +4,15 @@
 
 I used React + TypeScript and [Bulma](https://bulma.io) as a CSS framework to help with the aesthetics.
 
+Other technologies:
+
+- [i18next](https://www.i18next.com) to make the site multilingual, setting the language to the browser's default but allowing a user to change manually if they would rather see it in a different one.
+
+- [React Router](https://reactrouter.com) to create a multi-level navigation structure that enables a seamless multilingual experience.
+
+### Deployed version
+
+The website is deployed using Heroku and can be viewed at https://liam-clark.herokuapp.com. It will soon be available at www.liamclark.com
 
 ### To run it locally
 

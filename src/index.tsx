@@ -20,6 +20,9 @@ const root = ReactDOM.createRoot(
 );
 
 const languages: string[] = ['es', 'en'];
+const flagCodes: Map<string, string> = new Map();
+flagCodes.set('es', 'ES');
+flagCodes.set('en', 'GB');
 
 root.render(
   <React.StrictMode>

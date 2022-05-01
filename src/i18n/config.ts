@@ -15,8 +15,7 @@ export const resources = {
         linkedin: 'Checkout my LinkedIn',
       },
       footer: {
-        'open-source-note1': 'This website is',
-        'open-source-note2': 'open source',
+        'open-source-note': '<0>This website is </0><1> open source</1>.',
       },
     },
 
@@ -33,8 +32,7 @@ export const resources = {
         linkedin: 'Echa un vistazo a mi LinkedIn',
       },
       footer: {
-        'open-source-note1': 'Esta pagina web es de',
-        'open-source-note2': 'codigo abierto',
+        'open-source-note': '<0>Esta página web es de </0><1>codigo abierto</1>.',
       },
     },
 
@@ -50,6 +48,9 @@ i18n
     debug: true,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
+    },
+    react: {
+      transWrapTextNodes: '',
     },
     resources,
   });

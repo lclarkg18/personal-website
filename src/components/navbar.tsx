@@ -20,19 +20,17 @@ export default function NavBar() {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Link to={`/${i18n.language}`} onClick={() => setActiveTab('')}>
-            <figure className="image is-rounded is-64x64 is-hidden-touch">
-              <img alt="Liam" src={pictureOfMe} className="is-rounded" />
+            <figure className="image is-64x64 is-hidden-touch">
+              <img alt="Liam" src={pictureOfMe} className="is-64x64 is-rounded" loading="lazy" />
             </figure>
             <div className="media is-hidden-desktop">
               <div className="media-left">
-                <figure className="image is-rounded is-48x48 is-hidden-desktop">
-                  <img alt="Liam" src={pictureOfMe} className="is-rounded" />
+                <figure className="image is-48x48 is-hidden-desktop">
+                  <img alt="Liam" src={pictureOfMe} className="is-rounded is-48x48" loading="lazy" />
                 </figure>
               </div>
               <strong className="title is-5 is-hidden-desktop is-align-self-center">Liam Clark Gutiérrez</strong>
-
             </div>
-
           </Link>
           <a
             role="button"

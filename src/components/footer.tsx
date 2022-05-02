@@ -32,14 +32,14 @@ export default function Footer({ languageObject }: FooterProps) {
       <div className="level-left">
         <div className="level-item">
           <Trans i18nKey="footer.open-source-note">
-            <text style={{ whiteSpace: 'pre-wrap' }} />
+            <span style={{ whiteSpace: 'pre-wrap' }} />
             <a href="https://github.com/lclarkg18/personal-website" target="_blank" rel="noreferrer" />
           </Trans>
         </div>
       </div>
       <div className="level-right">
         {[...filterLanguages().entries()].map(([lang, flag]) => (
-          <a className="is-64x64" href={`/${lang}/${getPathWithoutLng()}`} rel="noreferrer">
+          <a key={`${lang}_flag`} className="is-64x64" href={`/${lang}/${getPathWithoutLng()}`} rel="noreferrer">
             <img
               width={30}
               alt={`${flag}-Flag`}

@@ -28,30 +28,10 @@ export default function App({ languageObject }: AppProps): JSX.Element {
       <header className="section">
         <NavBar />
       </header>
-      <main className="section">
+      <main className="section" style={{ paddingTop: '0px' }}>
         <div className="container is-max-widescreen">
           <Outlet />
-          <br />
-          <br />
-          <br />
-
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-
-          <br />
-          <br />
-          <br />
-
-          <br />
         </div>
-
       </main>
       <footer className="footer">
         <Footer languageObject={languageObject} />

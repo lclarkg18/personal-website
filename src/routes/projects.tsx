@@ -115,7 +115,7 @@ export default function Projects() {
               </p>
               <p className="subtitle">
                 From C++ to Java, studying computer science at King&apos;s College London
-                taught me a wide range of skills that I put it to practice in many
+                taught me a wide range of skills that I have put it to practice through many
                 coursework.
               </p>
               <div className="content" />

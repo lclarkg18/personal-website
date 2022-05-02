@@ -1,25 +1,15 @@
 import React from 'react';
 
-import { useLocation } from 'react-router-dom';
-
 import { Trans } from 'react-i18next';
 
 import { LanguageObject } from '../types';
+import { getPathWithoutLng } from '../helpers';
 
 interface FooterProps {
   languageObject: LanguageObject
 }
 
 export default function Footer({ languageObject }: FooterProps) {
-  function getPathWithoutLng() : string {
-    const pathWithoutFirstSlash: string = useLocation().pathname.substring(1);
-    const firstSlashLocation: number = pathWithoutFirstSlash.indexOf('/');
-    if (firstSlashLocation === -1) {
-      return '';
-    }
-    return pathWithoutFirstSlash.substring(firstSlashLocation + 1);
-  }
-
   function filterLanguages() {
     return new Map(
       [...languageObject.flagCodes]

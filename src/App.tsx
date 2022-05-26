@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import NavBar from './components/navbar';
 import Footer from './components/footer';
 import { LanguageObject } from './types';
+import Home from './routes/home';
+import { getPathWithoutLng } from './helpers';
 
 interface AppProps {
   languageObject: LanguageObject // All variables to do with language
@@ -13,6 +15,7 @@ interface AppProps {
 
 export default function App({ languageObject }: AppProps): JSX.Element {
   const { i18n } = useTranslation();
+  const isHomepage = getPathWithoutLng() === '';
   const [language] = useState<string>(languageObject.activeLanguage);
 
   useEffect(() => {
@@ -24,13 +27,13 @@ export default function App({ languageObject }: AppProps): JSX.Element {
   }, [language]);
 
   return (
-    <div>
-      <header className="section">
+    <div className="main">
+      <header className="header">
         <NavBar />
       </header>
       <main className="section" style={{ paddingTop: '0px' }}>
         <div className="container is-max-widescreen">
-          <Outlet />
+          { isHomepage ? <Home /> : <Outlet /> }
         </div>
       </main>
       <footer className="footer">

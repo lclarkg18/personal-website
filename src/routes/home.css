@@ -1,0 +1,36 @@
+
+.effect {
+    text-align: center;
+    position: relative;
+    font-size: 22px;
+    width: 150px;
+    overflow: hidden;
+}
+
+.effect.effect-1 {
+    transition: all 0.2s linear 0s;
+}
+
+.effect.effect-1:before {
+    content: "→";
+    font-size: 22px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    height: 100%;
+    width: 35px;
+    transition: all 0.2s linear 0s;
+}
+
+.effect.effect-1:hover {
+     text-indent: -32px;
+}
+
+.effect.effect-1:hover:before {
+     opacity: 1;
+     text-indent: 0px;
+}

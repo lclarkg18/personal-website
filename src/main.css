@@ -15,6 +15,23 @@
   color: inherit;
 }
 
+.main {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-inline: 25px;
+}
+
+.section {
+  flex: 1;
+  padding-top: 0;
+}
+
 .footer {
-  padding-bottom: 3rem
+  padding-bottom: 3rem;
 }

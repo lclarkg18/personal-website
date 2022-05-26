@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Modal from '../components/modal';
+import { ModalContext } from '../providers/context';
+import { capitalise } from '../helpers';
 
-export default function Projects() {
+import PersonalWebsiteContent from '../projects/PersonalWebsiteContent';
+import PersonalWebsiteTitle from '../projects/PersonalWebsiteTitle';
+
+export default function Projects(): JSX.Element {
+  const { t } = useTranslation();
+  const [isPersonalWebsiteActive, setIsPersonalWebsiteActive] = useState<boolean>(false);
+  const [isSlurpActive, setIsSlurpActive] = useState<boolean>(false);
+
   return (
-    <>
-      <h1 className="title is-1 has-text-weight-bold">Projects</h1>
+    <ModalContext.Provider value={{
+      personalWebsite: {
+        isActive: isPersonalWebsiteActive,
+        setIsActive: setIsPersonalWebsiteActive,
+      },
+      slurp: {
+        isActive: isSlurpActive,
+        setIsActive: setIsSlurpActive,
+      },
+    }}
+    >
+      <Modal
+        title={PersonalWebsiteTitle()}
+        content={PersonalWebsiteContent()}
+        modalContextDefinition="personalWebsite"
+      />
+      <h1 className="title is-1 has-text-weight-bold">{capitalise(t('navbar-sections.projects'))}</h1>
       <div className="tile is-ancestor">
         <div className="tile is-parent">
           <article className="tile is-child notification is-success">
@@ -45,7 +71,10 @@ export default function Projects() {
 
           <div className="tile">
             <div className="tile is-parent is-vertical">
-              <article className="tile is-child notification is-primary">
+              <article
+                className="tile is-child notification is-primary is-clickable"
+                onClick={() => setIsPersonalWebsiteActive(!isPersonalWebsiteActive)}
+              >
                 <p className="title">
                   liamclark.com
                   {' '}
@@ -84,7 +113,7 @@ export default function Projects() {
             <div className="tile is-parent">
               <article className="tile is-child notification is-info">
                 <p className="title">
-                  GEI
+                  Opus
                   {' '}
                   <i className="devicon-mongodb-plain" />
                   {' '}
@@ -123,6 +152,6 @@ export default function Projects() {
           </div>
         </div>
       </div>
-    </>
+    </ModalContext.Provider>
   );
 }

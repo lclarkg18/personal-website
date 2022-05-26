@@ -28,6 +28,7 @@ export default function Footer({ languageObject }: FooterProps) {
         </div>
       </div>
       <div className="level-right">
+        <p style={{ paddingBottom: 5 }}> Change language:&nbsp;&nbsp;</p>
         {[...filterLanguages().entries()].map(([lang, flag]) => (
           <a key={`${lang}_flag`} className="is-64x64" href={`/${lang}/${getPathWithoutLng()}`} rel="noreferrer">
             <img

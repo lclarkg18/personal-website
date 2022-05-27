@@ -20,7 +20,7 @@ export default function Home() {
       </h1>
       <div style={{ paddingTop: 10, display: 'flex' }}>
         <a href={contactMeLink} style={{ color: '#5f8bce' }}>
-          <p className="effect effect-1">
+          <p className="effect effect-1 effect-2">
             {' '}
             <FontAwesomeIcon icon={faEnvelope} />
             {' '}

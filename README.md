@@ -12,7 +12,7 @@ Other technologies:
 
 ### Deployed version
 
-The website is deployed using Heroku and can be viewed at https://liam-clark.herokuapp.com. It will soon be available at www.liamclark.com
+The website is deployed using AWS Amplify and can be viewed at www.liamclark.com. It is pushed to production automatically.
 
 ### To run it locally
 

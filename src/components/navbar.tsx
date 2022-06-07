@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import pictureOfMe from '../static/images/head-shot.jpg';
 import { getActiveSection } from '../helpers';
 
@@ -62,6 +62,15 @@ export default function NavBar() {
             ))}
           </div>
           <div className="navbar-end is">
+            <a
+              className="navbar-item is-size-5"
+              title={t('links.stackoverflow')}
+              href="https://stackoverflow.com/users/15547098/liam-clark-gutiérrez"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon={faStackOverflow} />
+            </a>
             <a
               className="navbar-item is-size-5"
               title={t('links.github')}

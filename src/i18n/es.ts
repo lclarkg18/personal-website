@@ -8,6 +8,7 @@ export default {
     links: {
       github: 'Echa un vistazo a mi GitHub',
       linkedin: 'Echa un vistazo a mi LinkedIn',
+      stackoverflow: 'Echa un vistazo a mi StackOverflow',
     },
     footer: {
       'open-source-note': '<0>Esta página web es de </0><1>codigo abierto</1>.',

@@ -12,7 +12,7 @@ import useWindowDimensions from '../miscelaneous/DimensionsHook';
 
 export default function Home() {
   const { t, i18n } = useTranslation();
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const contactMeLink: string = i18n.language === 'es' ? 'mailto:work@liamclark.com?subject=Hola%20Liam!' : 'mailto:work@liamclark.com?subject=What\'s%20up%20Liam%3F';
 
   // @ts-ignore

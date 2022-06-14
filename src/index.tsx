@@ -1,12 +1,7 @@
 import React from 'react';
 
 import ReactDOM from 'react-dom/client';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import './main.css';
 import i18n from 'i18next';
@@ -19,9 +14,7 @@ import About from './routes/about';
 import Projects from './routes/projects';
 import Blog from './routes/blog';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const languages: string[] = ['es', 'en'];
 const flagCodes: Map<string, string> = new Map();
@@ -36,24 +29,22 @@ root.render(
           <Route
             key={`${language}_route`}
             path={`${language}/`}
-            element={(
-              <App languageObject={{
-                activeLanguage: language,
-                languageOptions: languages,
-                flagCodes,
-              }}
+            element={
+              <App
+                languageObject={{
+                  activeLanguage: language,
+                  languageOptions: languages,
+                  flagCodes,
+                }}
               />
-)}
+            }
           >
             <Route path="projects/" element={<Projects />} />
             <Route path="about/" element={<About />} />
             <Route path="blog/" element={<Blog />} />
           </Route>
         ))}
-        <Route
-          path="/"
-          element={<Navigate to={`/${i18n.resolvedLanguage}`} replace />}
-        />
+        <Route path="/" element={<Navigate to={`/${i18n.resolvedLanguage}`} replace />} />
         <Route path="*" element={<h1> 404 </h1>} />
       </Routes>
     </BrowserRouter>

@@ -3,15 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import lottie from 'lottie-web';
 
 interface LottieProps {
-  name: string
-  animationData: any
-  width: number
-  height: number
+  name: string;
+  animationData: any;
+  width: number;
+  height: number;
 }
 
-export default function HoverLottie({
-  name, animationData, width, height,
-}: LottieProps) {
+export default function HoverLottie({ name, animationData, width, height }: LottieProps) {
   const element = useRef<HTMLDivElement>(null);
   const lottieInstance = useRef<any>();
   const [triggerAnimation, setTriggerAnimation] = useState(false);
@@ -43,11 +41,5 @@ export default function HoverLottie({
     }
   }, [triggerAnimation]);
 
-  return (
-    <div
-      style={{ width, height }}
-      onMouseEnter={() => setTriggerAnimation(!triggerAnimation)}
-      ref={element}
-    />
-  );
+  return <div style={{ width, height }} onMouseEnter={() => setTriggerAnimation(!triggerAnimation)} ref={element} />;
 }

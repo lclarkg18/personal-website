@@ -1,48 +1,47 @@
-
 .effect {
-    text-align: center;
-    position: relative;
-    font-size: 22px;
-    width: 140px;
-    overflow: hidden;
+  text-align: center;
+  position: relative;
+  font-size: 22px;
+  width: 140px;
+  overflow: hidden;
 }
 
 .effect.effect-1 {
-    transition: all 0.15s linear 0s;
+  transition: all 0.15s linear 0s;
 }
 
 .effect.effect-1:after {
-    content: "→";
-    font-size: 22px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-    top: 2px;
-    opacity: 0;
-    height: 100%;
-    width: 15px;
-    transition: all 0.2s ease-in-out 0s;
+  content: '→';
+  font-size: 22px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  top: 2px;
+  opacity: 0;
+  height: 100%;
+  width: 15px;
+  transition: all 0.2s ease-in-out 0s;
 }
 
 .effect.effect-1:hover {
-    text-indent: -32px;
+  text-indent: -32px;
 }
 
 .effect.effect-1:hover:after {
-    opacity: 1;
-    text-indent: 0;
-    size: auto;
+  opacity: 1;
+  text-indent: 0;
+  size: auto;
 }
 
 .effect.effect-2:before {
-    content: "›";
-    font-size: 26px;
-    opacity: 1;
-    transition: all 0.05s linear 0s;
+  content: '›';
+  font-size: 26px;
+  opacity: 1;
+  transition: all 0.05s linear 0s;
 }
 
 .effect.effect-2:hover:before {
-    opacity: 0;
+  opacity: 0;
 }

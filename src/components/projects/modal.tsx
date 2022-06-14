@@ -1,13 +1,11 @@
-import React, {
-  useContext,
-} from 'react';
+import React, { useContext } from 'react';
 import 'bulma/css/bulma.css';
 import { ModalContext } from '../../providers/context';
 
 interface ModalProps {
-  title: JSX.Element,
-  content: JSX.Element,
-  modalContextDefinition: string,
+  title: JSX.Element;
+  content: JSX.Element;
+  modalContextDefinition: string;
 }
 
 export default function Modal({ title, content, modalContextDefinition }: ModalProps): JSX.Element {

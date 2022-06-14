@@ -6,15 +6,12 @@ import { LanguageObject } from '../types';
 import { getPathWithoutLng } from '../helpers';
 
 interface FooterProps {
-  languageObject: LanguageObject
+  languageObject: LanguageObject;
 }
 
 export default function Footer({ languageObject }: FooterProps) {
   function filterLanguages() {
-    return new Map(
-      [...languageObject.flagCodes]
-        .filter(([lang]) => lang !== languageObject.activeLanguage),
-    );
+    return new Map([...languageObject.flagCodes].filter(([lang]) => lang !== languageObject.activeLanguage));
   }
 
   return (

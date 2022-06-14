@@ -7,11 +7,10 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import pictureOfMe from '../static/images/head-shot.jpg';
-import { getActiveSection } from '../helpers';
+import { SectionState } from '../types';
 
-export default function NavBar() {
+export default function NavBar(activeSection: SectionState) {
   const { t, i18n } = useTranslation();
-  const [activeTab, setActiveTab] = useState<string>(getActiveSection());
   const [smallScreenMenuActivated, setSmallScreenMenuActivated] = useState<boolean>(false);
   const sections: string[] = ['about', 'projects', 'blog'];
 
@@ -19,7 +18,7 @@ export default function NavBar() {
     <div className="container is-max-widescreen">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link to={`/${i18n.language}`} onClick={() => setActiveTab('')}>
+          <Link to={`/${i18n.language}`} onClick={() => activeSection.setActiveSection('')}>
             <figure className="image is-64x64 is-hidden-touch">
               <img alt="Liam" src={pictureOfMe} className="is-64x64 is-rounded" loading="lazy" />
             </figure>
@@ -34,7 +33,7 @@ export default function NavBar() {
           </Link>
           <a
             role="button"
-            className={`navbar-burger ${(smallScreenMenuActivated ? 'is-active' : '')}`}
+            className={`navbar-burger ${smallScreenMenuActivated ? 'is-active' : ''}`}
             aria-label="menu"
             aria-expanded="false"
             data-target="navigation"
@@ -46,18 +45,16 @@ export default function NavBar() {
           </a>
         </div>
 
-        <div id="navigation" className={`navbar-menu ${(smallScreenMenuActivated ? 'is-active' : '')}`}>
+        <div id="navigation" className={`navbar-menu ${smallScreenMenuActivated ? 'is-active' : ''}`}>
           <div className="navbar-start">
             {sections.map((section) => (
               <Link
                 key={`${section}_link`}
-                className={`navbar-item ${activeTab === section ? 'is-active' : ''}`}
+                className={`navbar-item ${activeSection.activeSection === section ? 'is-active' : ''}`}
                 to={`/${i18n.language}/${section}`}
-                onClick={() => setActiveTab(section)}
+                onClick={() => activeSection.setActiveSection(section)}
               >
-                <span className="navbar-item-name">
-                  {t(`navbar-sections.${section}`)}
-                </span>
+                <span className="navbar-item-name">{t(`navbar-sections.${section}`)}</span>
               </Link>
             ))}
           </div>

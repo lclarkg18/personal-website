@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-export function getPathWithoutLng() : string {
+export function getPathWithoutLng(): string {
   const pathWithoutFirstSlash: string = useLocation().pathname.substring(1);
   const firstSlashLocation: number = pathWithoutFirstSlash.indexOf('/');
   if (firstSlashLocation === -1) {
@@ -14,7 +14,7 @@ export function getPathWithoutLng() : string {
  * the word after the language, in this case project.
  * Also works with localhost:3000/en/projects.
  */
-export function getActiveSection() : string {
+export function getActiveSection(): string {
   const pathWithoutFirstSlash: string = useLocation().pathname.substring(1);
   const secondSlashLocation: number = pathWithoutFirstSlash.indexOf('/');
   const pathWithoutSecondSlash: string = pathWithoutFirstSlash.substring(secondSlashLocation + 1);
@@ -25,6 +25,6 @@ export function getActiveSection() : string {
   return pathWithoutSecondSlash.substring(0, thirdSlashLocation);
 }
 
-export function capitalise(string: string) : string {
+export function capitalise(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }

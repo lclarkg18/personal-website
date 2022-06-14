@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Modal from '../components/modal';
+import Modal from '../components/projects/modal';
 import { ModalContext } from '../providers/context';
 import { capitalise } from '../helpers';
 
-import PersonalWebsiteContent from '../projects/PersonalWebsiteContent';
-import PersonalWebsiteTitle from '../projects/PersonalWebsiteTitle';
+import PersonalWebsiteContent from '../components/projects/PersonalWebsiteContent';
+import PersonalWebsiteTitle from '../components/projects/PersonalWebsiteTitle';
 
 export default function Projects(): JSX.Element {
   const { t } = useTranslation();

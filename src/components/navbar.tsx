@@ -61,7 +61,7 @@ export default function NavBar() {
               </Link>
             ))}
           </div>
-          <div className="navbar-end is">
+          <div className="navbar-end">
             <a
               className="navbar-item is-size-5"
               title={t('links.stackoverflow')}
